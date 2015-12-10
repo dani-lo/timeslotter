@@ -7,7 +7,7 @@ module.exports = function(grunt) {
       options: {
         jshintrc: ".jshintrc"
       },
-      beforeconcat: ['src/scripts/**/*.js']//,
+      beforeconcat: ['scripts/**/*.js']//,
       //afterconcat: ['dist/output.js']
     },
     uglify: {

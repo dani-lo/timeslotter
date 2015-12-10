@@ -1,0 +1,1 @@
+define(["backbone","underscore","jquery","collections/slots"],function(a,b,c,d){"use strict";function e(){}return e.prototype.start=function(){var a=c.Deferred();return a.promise()},e});

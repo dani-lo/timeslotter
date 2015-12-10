@@ -1,0 +1,1 @@
+define(["underscore","moment"],function(a,b){"use strict";function c(){this.types={A:2,B:4},this.interval=null,this.range=24,this.slots={}}return c.prototype.initialize=function(a){this.interval=this.types[a.type]},c.prototype.bookSlot=function(){},c.prototype.removeSlot=function(){},c.prototype.slotAvailable=function(){},c.prototype.toObject=function(){},c});
