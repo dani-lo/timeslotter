@@ -12,25 +12,27 @@ define([
 			"c": 4
 		};
 		//
-		this.interval = null;
-		this.range = 24;
+		this.type = null;
+		this.name = null;
 		this.slots = [];
-	}
-	/**
-	*
-	*
-	*/
-	SlotData.prototype.initialize = function (options) {
 		//
-		this.interval = this.types[options.type];
-
-		this.initSLots();
+		this.interval = null;
+		//
+		this.range = 24;
 	}
 	/**
 	*
 	*
 	*/
-	SlotData.prototype.initSLots = function () {
+	SlotData.prototype.initialize = function () {
+		//
+		this.initSlots();
+	}
+	/**
+	*
+	*
+	*/
+	SlotData.prototype.initSlots = function () {
 		//
 		var totalSlots = this.range / this.interval;
 
@@ -46,6 +48,27 @@ define([
 	*
 	*
 	*/
+	SlotData.prototype.inflate = function (slotModel) {
+		//
+		this.type = slotModel.get("type");
+		this.name = slotModel.get("name");
+		this.interval = this.range / this.types[this.type];
+
+		var boookedSlots = slotModel.get("booked");
+
+		_.each(this.slots, _.bind(function (slot) {
+			//
+			if (boookedSlots.indexOf(slot.id) !== -1) {
+				//
+				this.bookSlot(slot.id);
+			}
+		}, this));
+	}
+	/**
+	*
+	*
+	*/
+
 	SlotData.prototype.bookSlot = function (slotId) {
 		//
 		_.each(this.slots, _.bind(function (slot) {
@@ -72,7 +95,7 @@ define([
 	*
 	*
 	*/
-	SlotData.prototype.toArray = function () {
+	SlotData.prototype.toObject = function () {
 		//
 		var bookedSlotsArray = [];
 		//
@@ -83,7 +106,11 @@ define([
 			}
 		}, this));
 
-		return bookedSlotsArray;
+		return {
+			name: this.name,
+			type: this.type,
+			booked: bookedSlotsArray
+		};
 	}
 	/**
 	*

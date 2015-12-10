@@ -2,8 +2,9 @@ define([
 	"backbone",
 	"underscore",
 	"jquery",
-	"collections/slots"
-], function (Backbone, _, jQuery, SlotsCollection) {
+	"collections/slots",
+	"util/slotdata"
+], function (Backbone, _, jQuery, SlotsCollection, SlotData) {
 	"use strict";
 	//
 	function SlotsHub () {
@@ -14,15 +15,30 @@ define([
 	*
 	*
 	*/
-	SlotsHub.prototype.start = function () {
+	SlotsHub.prototype.fetch = function () {
 		//
 		var dfd = jQuery.Deferred();
 
 		this.collection.fetch({
-			success: function (d) {
-				dfd.resolve();
-			},
+			success: _.bind(function (d) {
+				//
+				var slotsDataItems = [],
+					slotItem;
+
+				this.collection.each(function (slotModel) {
+					//
+					slotItem = new SlotData();
+					slotItem.initialize();
+					//
+					slotItem.inflate(slotModel);
+					
+					slotsDataItems.push(slotItem);
+				});
+				//
+				dfd.resolve(slotsDataItems);
+			}, this),
 			error: function () {
+				//
 				dfd.reject(new Error("Can not fetch slots data"));
 			}
 		});
@@ -33,13 +49,13 @@ define([
 	*
 	*
 	*/
-	SlotsHub.prototype.store = function () {
+	SlotsHub.prototype.store = function (slotModel) {
 		//
-		var dfd = jQuery.Deferred();
-
-		// TODO ....
-
-		return dfd.promise();
+		var slotsDataItem = new SlotData();
+		slotsDataItem.initialize();
+		slotsDataItem.inflate(slotModel);
+		//
+		console.log(slotsDataItem.toObject());
 	}
 	/**
 	*
