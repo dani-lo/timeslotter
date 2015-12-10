@@ -1,0 +1,1 @@
+define(["backbone","models/slot"],function(a,b){"use strict";var c=a.Collection.extend({model:b});return c});

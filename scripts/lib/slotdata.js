@@ -7,37 +7,87 @@ define([
 	function SlotData () {
 		//
 		this.types = {
-			"A": 2,
-			"B": 4
+			"A": 1,
+			"B": 2,
+			"c": 4
 		};
-
+		//
 		this.interval = null;
-
 		this.range = 24;
-
-		this.slots = {};
+		this.slots = [];
 	}
-
+	/**
+	*
+	*
+	*/
 	SlotData.prototype.initialize = function (options) {
 		//
 		this.interval = this.types[options.type];
-	}
 
-	SlotData.prototype.bookSlot = function () {
-		//
+		this.initSLots();
 	}
+	/**
+	*
+	*
+	*/
+	SlotData.prototype.initSLots = function () {
+		//
+		var totalSlots = this.range / this.interval;
 
-	SlotData.prototype.removeSlot = function () {
-		//
+		for (var i = 0; i < totalSlots; i++) {
+			//
+			this.slots.push({
+				id: i,
+				booked: false
+			});
+		}
 	}
+	/**
+	*
+	*
+	*/
+	SlotData.prototype.bookSlot = function (slotId) {
+		//
+		_.each(this.slots, _.bind(function (slot) {
+			//
+			if (slot.id === slotId) {
+				slot.booked = true;
+			}
+		}, this));
+	}
+	/**
+	*
+	*
+	*/
+	SlotData.prototype.freeSlot = function (slotId) {
+		//
+		_.each(this.slots, _.bind(function (slot) {
+			//
+			if (slot.id === slotId) {
+				slot.booked = false;
+			}
+		}, this));
+	}
+	/**
+	*
+	*
+	*/
+	SlotData.prototype.toArray = function () {
+		//
+		var bookedSlotsArray = [];
+		//
+		_.each(this.slots, _.bind(function (slot) {
+			//
+			if (slot.booked === true) {
+				bookedSlotsArray.push(slot.id);
+			}
+		}, this));
 
-	SlotData.prototype.slotAvailable = function () {
-		//
+		return bookedSlotsArray;
 	}
-
-	SlotData.prototype.toObject = function () {
-		//
-	}
-	
+	/**
+	*
+	*
+	*/
 	return SlotData;
 });
