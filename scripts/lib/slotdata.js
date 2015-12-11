@@ -8,7 +8,7 @@ define([
 		this.types = {
 			"A": 2,
 			"B": 3,
-			"c": 4
+			"C": 4
 		};
 		//
 		this.type = null;
@@ -48,7 +48,6 @@ define([
 		//
 		this.interval = this.range / this.types[this.type];
 	}
-	
 	/**
 	*
 	*

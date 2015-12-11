@@ -23,6 +23,8 @@ define([
 
       this.slotData = null;
 
+      this.owner = options.owner;
+
       return this;
     },
     //
@@ -43,10 +45,14 @@ define([
         slots: this.slotsData.slots
       }));
 
-      this.$el.find(".go-create").on("click", function () {
-
-      });
-
+      // bind the slots create UI
+      // (should be refactored to own View)
+      this.$el.find(".go-create").on("click", _.bind(function () {
+        //
+        this.goCreate();
+      }, this));
+      // bind the slots create UI
+      // (should be refactored to own View)
       this.$el.find(".slotlist_box").on("click", _.bind(function (e) {
         var slotBox = jQuery(e.currentTarget),
             boxId = parseInt(slotBox.attr("id").replace("slotbox-", ""), 10);
@@ -59,12 +65,16 @@ define([
           this.slotsData.freeSlot(boxId);
         }
 
-        console.log(this.slotsData.toObject());
+        console.log();
       }, this));
     },
 
-    goCreate: function (slot) {
+    goCreate: function () {
       //
+      this.owner.appendTimeslot(this.slotsData, true);
+
+      console.log(this.slotsData.toObject());
+      
       this.reset();
     },
 

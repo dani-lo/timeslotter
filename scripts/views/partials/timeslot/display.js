@@ -16,7 +16,6 @@ define([
     //
     render: function () {
       //  
-      console.log(this.slotsData)
       return _.template(SlotsDisplayTpl, {
         name: this.slotsData.name,
         type: this.slotsData.type,

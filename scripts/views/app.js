@@ -31,18 +31,30 @@ define([
         //
         _.each(slotItems, _.bind(function (item) {
 
-          var slotView = new TimeSlotDisplayView({
-            slotsData: item
-          });
-          
-          this.$el.find(".view-slots").append(slotView.render());
+          this.appendTimeslot(item);
         }, this));
       }, this));
 
-      var slotsCreateView = new TimeSlotCreateView();
-      console.log(slotsCreateView);
-      //sloteCreateView.initialize().render();
+      var slotsCreateView = new TimeSlotCreateView({
+        owner: this
+      });
+      //
+      slotsCreateView.render();
     },
+    //
+    appendTimeslot: function (item, boolNew) {
+      //
+      var slotView = new TimeSlotDisplayView({
+        slotsData: item
+      });
+      
+      if (boolNew) {
+        this.$el.find(".view-slots").append(slotView.render());
+      } else {
+        this.$el.find(".view-slots").append(slotView.render());
+      }
+      
+    }
   });
   //
   return App;
