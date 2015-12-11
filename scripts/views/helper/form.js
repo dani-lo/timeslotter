@@ -1,7 +1,8 @@
 define([
   "backbone",
-  "underscore"
-], function(Backbone, _) {
+  "underscore",
+  "views/helper/flash"
+], function(Backbone, _, FlashHelper) {
   //
   "use strict";
   /**
@@ -28,6 +29,7 @@ define([
       this.text = null;
       this.select = null;
 
+      this.flash = new FlashHelper();
       return this;
     },
      /**

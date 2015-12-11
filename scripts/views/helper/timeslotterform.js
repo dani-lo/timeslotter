@@ -35,7 +35,7 @@ define([
                 //
                 this.reset();
             } else {
-                alert("please see errors and amend");
+                this.flash.render(true, "please see errors and amend").show();
             }
 
         }
