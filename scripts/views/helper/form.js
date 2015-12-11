@@ -55,7 +55,6 @@ define([
       //
       if (which === "t" || !which) {
         this.text.removeClass("err");
-        this.text.val();
       }
         
       if (which === "s" || !which) {
@@ -70,7 +69,7 @@ define([
     reset: function () {
       //
       this.text.val("");
-      this.select.val("");
+      this.select[0].selectedIndex = 0;
 
       this.cleanup();
     },
