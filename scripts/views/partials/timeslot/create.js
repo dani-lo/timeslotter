@@ -4,7 +4,7 @@ define([
   "jquery",
   "views/helper/timeslotterform",
   "lib/slotdata",
-  "text!/templates/slot-create.html"
+  "text!slot-create.html"
 ], function(Backbone, _, jQuery, TimeslotFormUtil, SlotDataUtil, SlotsCreateTpl) {
   //
   "use strict";
@@ -115,7 +115,7 @@ define([
     goCancel: function () {
       //
       this.slotsData = null;
-      
+
       this.tform.unlock();
 
       this.reset();

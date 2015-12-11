@@ -1,1 +1,1 @@
-define(["backbone"],function(a){"use strict";var b=a.Model.extend({defaults:{name:null,type:null,booked:null},url:function(){return"/data/slots.json"}});return b});
+define(["backbone"],function(a){"use strict";var b=a.Model.extend({defaults:{name:null,type:null,booked:null}});return b});

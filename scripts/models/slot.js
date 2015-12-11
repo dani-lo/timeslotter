@@ -8,10 +8,6 @@ define(["backbone"], function (Backbone) {
 			name : null,
 			type : null,
 			booked: null
-		},
-
-		url : function () {
-			return "/data/slots.json";
 		}
 	});
 	return SlotModel;

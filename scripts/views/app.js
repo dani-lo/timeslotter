@@ -5,7 +5,7 @@ define([
   "views/partials/timeslot/create",
   "views/helper/loader",
   "lib/slotshub",
-  "text!/templates/timeslots.html"
+  "text!timeslots.html"
 ], function(Backbone, _, TimeSlotDisplayView, 
   TimeSlotCreateView, LoaderViewHelper, SlotsHubManager, TimeSlotsTpl) {
   //

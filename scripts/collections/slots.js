@@ -9,7 +9,7 @@ function (Backbone, SlotModel) {
 
 		model: SlotModel,
 		url: function () {
-			return "/data/slots.json";
+			return "/api/slots";
 		}
 	});
 
