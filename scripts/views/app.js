@@ -4,7 +4,7 @@ define([
   "views/partials/timeslot/display",
   "views/partials/timeslot/plot",
   "views/partials/timeslot/create",
-  "util/slotshub",
+  "lib/slotshub",
   "text!/templates/timeslots.html"
 ], function(Backbone, _, TimeSlotDisplayView, TimeSlotPlotView, 
   TimeSlotCreateView, SlotsHubManager, TimeSlotsTpl) {
@@ -19,15 +19,7 @@ define([
 
       this.tpl = TimeSlotsTpl;
 
-      this.subviews = {
-        display: new TimeSlotDisplayView(),
-        create:  new TimeSlotCreateView(),
-        plot:  new TimeSlotPlotView()
-      };
-
       this.hub = new SlotsHubManager();
-
-      this.hub.initialize();
 
       return this;
     },
@@ -36,8 +28,16 @@ define([
       //      
       this.$el.append(this.tpl);
 
-      this.hub.start().then(_.bind(function () {
-
+      this.hub.fetchSlots().then(_.bind(function (slotItems) {
+        //
+        _.each(slotItems, _.bind(function (item) {
+          
+          var slotView = new TimeSlotDisplayView({
+            slotsData: item
+          });
+          
+          this.$el.find(".view-slots").append(slotView.render());
+        }, this));
       }, this));
     },
   });

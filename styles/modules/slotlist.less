@@ -1,0 +1,39 @@
+.slotlist {
+	width: 820px;
+    //.boxin(0, auto, 0, auto);
+
+	.slotlist_box {
+		float: left;
+		color: @white;
+    	background: @black;
+    	padding: 12px;
+		.borderstd;
+		//.boxout(@gap_std, @gap_std, @gap_std, 0);
+		.slotlist_item-label {
+			font-size: 1em;
+			span {
+				display: block;
+			}
+		}
+
+		&.booked {
+			background: @red;
+		}
+	}
+
+	&.slot-A {
+		.slotlist_box {
+			width: 65px;
+		}
+	}
+	&.slot-B {
+		.slotlist_box {
+			width: 65px;
+		}
+	}
+	&.slot-C {
+		.slotlist_box {
+			width: 65px;
+		}
+	}
+}

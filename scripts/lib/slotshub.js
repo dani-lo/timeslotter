@@ -3,11 +3,11 @@ define([
 	"underscore",
 	"jquery",
 	"collections/slots",
-	"util/slotdata"
+	"lib/slotdata"
 ], function (Backbone, _, jQuery, SlotsCollection, SlotData) {
 	"use strict";
 	//
-	function SlotsHub () {
+	var SlotsHub = function () {
 		//
 		this.collection =  new SlotsCollection();
 	}
@@ -15,7 +15,7 @@ define([
 	*
 	*
 	*/
-	SlotsHub.prototype.fetch = function () {
+	SlotsHub.prototype.fetchSlots = function () {
 		//
 		var dfd = jQuery.Deferred();
 
@@ -24,7 +24,6 @@ define([
 				//
 				var slotsDataItems = [],
 					slotItem;
-
 				this.collection.each(function (slotModel) {
 					//
 					slotItem = new SlotData();
@@ -49,7 +48,7 @@ define([
 	*
 	*
 	*/
-	SlotsHub.prototype.store = function (slotModel) {
+	SlotsHub.prototype.storeSlot = function (slotModel) {
 		//
 		var slotsDataItem = new SlotData();
 		slotsDataItem.initialize();

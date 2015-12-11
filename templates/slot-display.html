@@ -1,0 +1,7 @@
+<div class="slot-item-display clearfix slotlist slot-<%= type %>">
+	<h3 class="slotlist_heading"><%= name %></h3>
+	<h4>Interval: <%= pace %> hours</h4>
+	<% for (var slotsCount = 0; slotsCount < slots.length; slotsCount++) { %>
+		<div class="slotlist_box  <%= slots[slotsCount].booked === true ? 'booked' : 'free' %>"><span class="slotlist_item-label"><span><%= "from " + (pace * slots[slotsCount].id) %></span><span> <%= "to " + (pace * (slots[slotsCount].id + 1)) %></span></span></div>
+	<% } %>
+</div>

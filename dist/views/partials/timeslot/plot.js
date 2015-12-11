@@ -1,0 +1,1 @@
+define(["backbone","underscore","text!/templates/slot-plot.html"],function(a,b,c){"use strict";var d=a.View.extend({actions:{},initialize:function(){},render:function(){}});return d});

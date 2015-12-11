@@ -11,7 +11,7 @@ define(["backbone"], function (Backbone) {
 		},
 
 		url : function () {
-			return "/data/slots.json"
+			return "/data/slots.json";
 		}
 	});
 	return SlotModel;

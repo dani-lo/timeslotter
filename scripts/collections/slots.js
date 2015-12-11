@@ -7,7 +7,10 @@ function (Backbone, SlotModel) {
 
 	var SlotsCollection = Backbone.Collection.extend({
 
-		model: SlotModel
+		model: SlotModel,
+		url: function () {
+			return "/data/slots.json";
+		}
 	});
 
 	return SlotsCollection;

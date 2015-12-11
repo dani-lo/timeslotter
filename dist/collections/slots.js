@@ -1,1 +1,1 @@
-define(["backbone","models/slot"],function(a,b){"use strict";var c=a.Collection.extend({model:b});return c});
+define(["backbone","models/slot"],function(a,b){"use strict";var c=a.Collection.extend({model:b,url:function(){return"/data/slots.json"}});return c});

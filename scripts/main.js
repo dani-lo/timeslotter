@@ -10,8 +10,6 @@ require.config({
 require(["views/app"], function(AppView) {
 	//
 	"use strict";
-
-	console.log(AppView);
 	
 	var appView = new AppView();
 

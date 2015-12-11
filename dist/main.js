@@ -1,1 +1,1 @@
-require.config({paths:{jquery:"/vendor/jquery/dist/jquery.min",underscore:"/vendor/underscore-amd/underscore",backbone:"/vendor/backbone-amd/backbone",text:"/node_modules/text/text"}}),require(["views/app"],function(a){"use strict";console.log(a);var b=new a;b.initialize().render()});
+require.config({paths:{jquery:"/vendor/jquery/dist/jquery.min",underscore:"/vendor/underscore-amd/underscore",backbone:"/vendor/backbone-amd/backbone",text:"/node_modules/text/text"}}),require(["views/app"],function(a){"use strict";var b=new a;b.initialize().render()});
