@@ -17,6 +17,12 @@ p {
         margin-top: .5em; 
         color: @deep_gray;
         .boxout(@gap_sml, 0, @gap_sml, 0);
+
+        &.note {
+                font-weight: bold;
+                font-size: 1.3em;
+                .boxout(@gap_std, 0, @gap_std, 0);
+        }
 }
 span, label {
         font-family: "Helvetica Neue", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;

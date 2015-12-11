@@ -47,9 +47,9 @@ define([
 
       });
 
-      this.$el.find(".slotlist_box").on("click", function (e) {
+      this.$el.find(".slotlist_box").on("click", _.bind(function (e) {
         var slotBox = jQuery(e.currentTarget),
-            boxId = parseInt(slotBox.id.replace("slotbox-", ""), 10);
+            boxId = parseInt(slotBox.attr("id").replace("slotbox-", ""), 10);
 
         slotBox.toggleClass("booked");
 
@@ -58,7 +58,9 @@ define([
         } else {
           this.slotsData.freeSlot(boxId);
         }
-      });
+
+        console.log(this.slotsData.toObject());
+      }, this));
     },
 
     goCreate: function (slot) {

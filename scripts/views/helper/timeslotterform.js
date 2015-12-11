@@ -26,6 +26,7 @@ define([
             //
             e.preventDefault();
             console.log(this)
+            alert(this.select.val())
             if (this.validate()) {
                 this.onSubmitCb.call(null, {
                     name: this.text.val(),

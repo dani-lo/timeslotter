@@ -25,6 +25,7 @@ define([
 	*/
 	SlotData.prototype.initialize = function (options) {
 		//
+		console.log(options)
 		if (options && options.type) {
 			//
 			this.type = options.type;
