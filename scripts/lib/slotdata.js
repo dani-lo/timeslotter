@@ -25,11 +25,10 @@ define([
 	*/
 	SlotData.prototype.initialize = function (options) {
 		//
-		console.log(options)
 		if (options && options.type) {
 			//
 			this.type = options.type;
-			this.setInterval();
+			this.setSlotsInterval();
 		}
 		if (options && options.name) {
 			//
@@ -44,7 +43,7 @@ define([
 	*
 	*
 	*/
-	SlotData.prototype.setInterval = function () {
+	SlotData.prototype.setSlotsInterval = function () {
 		//
 		this.interval = this.range / this.types[this.type];
 	}
@@ -79,7 +78,7 @@ define([
 		this.type = slotModel.get("type");
 		this.name = slotModel.get("name");
 		
-		this.setInterval();
+		this.setSlotsInterval();
 
 		this.initSlots();
 

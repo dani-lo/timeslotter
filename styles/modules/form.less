@@ -31,5 +31,8 @@ form {
 		background: @red;
 		border: 1px solid @red;
 	}
-
+	&.form-locked {
+		.opaque(0.5, 50);
+		pointer-events: none;
+	}
 }

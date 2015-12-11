@@ -12,7 +12,10 @@ define([
   var SlotsCreateView = Backbone.View.extend({
     //
     el: ".createslot",
-    //
+    /**
+    *
+    *
+    */
     initialize: function(options) {
       //
       this.tform = new TimeslotFormUtil();
@@ -27,11 +30,17 @@ define([
 
       return this;
     },
-    //
+    /**
+    *
+    *
+    */
     render: function () {
-      //      
+      // do nothing, the form is pre-eisting     
     },
-
+    /**
+    *
+    *
+    */
     startCreate: function (options) {
       //
       this.slotsData = new SlotDataUtil();
@@ -45,41 +54,62 @@ define([
         slots: this.slotsData.slots
       }));
 
+      this.bindCreateSubview();
+
+      this.tform.lock();
+    },
+    /**
+    *
+    *
+    */
+    bindCreateSubview: function () {
       // bind the slots create UI
       // (should be refactored to own View)
       this.$el.find(".go-create").on("click", _.bind(function () {
         //
         this.goCreate();
       }, this));
+
       // bind the slots create UI
       // (should be refactored to own View)
       this.$el.find(".slotlist_box").on("click", _.bind(function (e) {
+        //
         var slotBox = jQuery(e.currentTarget),
             boxId = parseInt(slotBox.attr("id").replace("slotbox-", ""), 10);
 
         slotBox.toggleClass("booked");
 
         if (slotBox.hasClass("booked")) {
+
           this.slotsData.bookSlot(boxId);
         } else {
+
           this.slotsData.freeSlot(boxId);
         }
-
-        console.log();
       }, this));
     },
-
+    /**
+    *
+    *
+    */
     goCreate: function () {
       //
       this.owner.appendTimeslot(this.slotsData, true);
 
+      // as required, per specifications ...
       console.log(this.slotsData.toObject());
       
+      this.tform.unlock();
+
       this.reset();
     },
 
     reset: function () {
       //
+      this.$el.find(".go-create").off("click");
+
+      this.$el.find(".slotlist_box").off("click");
+      
       this.$el.find(".slotlist").remove();
     }
   });

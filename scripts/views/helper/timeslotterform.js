@@ -32,6 +32,8 @@ define([
                     name: this.text.val(),
                     type: this.select.val()
                 });
+                //
+                this.reset();
             } else {
                 alert("please see errors and amend");
             }

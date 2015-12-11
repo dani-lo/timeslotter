@@ -49,12 +49,8 @@ define([
 	*
 	*/
 	SlotsHub.prototype.storeSlot = function (slotModel) {
-		//
-		var slotsDataItem = new SlotData();
-		slotsDataItem.initialize();
-		slotsDataItem.inflate(slotModel);
-		//
-		console.log(slotsDataItem.toObject());
+		// not implemented
+		// as we are using a static json file
 	}
 	/**
 	*

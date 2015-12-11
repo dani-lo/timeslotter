@@ -7,8 +7,9 @@ define([
   /**
   * THis helper takes a form with
   * a select and a text input only
-  * and validates on submit. Uses promises
-  * to reject on missing data or continue
+  * and provides logic for validation (very basic ..).
+  * The submit functionality (onSubmit) needs to be
+  * provided by a subclass
   *
   */
   var FormHelperView = Backbone.View.extend({
@@ -46,15 +47,34 @@ define([
         this.cleanup("s");
       }, this));
     },
-
+    /**
+    *
+    *
+    */
     cleanup: function (which) {
       //
-      if (which === "t" || !which)
+      if (which === "t" || !which) {
         this.text.removeClass("err");
-      if (which === "s" || !which)
+        this.text.val();
+      }
+        
+      if (which === "s" || !which) {
         this.select.removeClass("err");
+        
+      }
     },
-     /**
+    /**
+    *
+    *
+    */
+    reset: function () {
+      //
+      this.text.val("");
+      this.select.val("");
+
+      this.cleanup();
+    },
+    /**
     *
     *
     */
@@ -77,6 +97,22 @@ define([
       }
 
       return isvalid;
+    },
+    /**
+    *
+    *
+    */
+    lock: function () {
+      //
+      this.$el.addClass("form-locked");
+    },
+    /**
+    *
+    *
+    */
+    unlock: function () {
+      //
+      this.$el.removeClass("form-locked");
     }
   });
   //

@@ -49,7 +49,7 @@ define([
       });
       
       if (boolNew) {
-        this.$el.find(".view-slots").append(slotView.render());
+        this.$el.find(".view-slots").prepend(slotView.render());
       } else {
         this.$el.find(".view-slots").append(slotView.render());
       }
