@@ -69,7 +69,12 @@ define([
         //
         this.goCreate();
       }, this));
-
+      // bind the slots Ccancel UI
+      // (should be refactored to own View)
+      this.$el.find(".go-cancel").on("click", _.bind(function () {
+        //
+        this.goCancel();
+      }, this));
       // bind the slots create UI
       // (should be refactored to own View)
       this.$el.find(".slotlist_box").on("click", _.bind(function (e) {
@@ -103,7 +108,22 @@ define([
 
       this.reset();
     },
+    /**
+    *
+    *
+    */
+    goCancel: function () {
+      //
+      this.slotsData = null;
+      
+      this.tform.unlock();
 
+      this.reset();
+    },
+    /**
+    *
+    *
+    */
     reset: function () {
       //
       this.$el.find(".go-create").off("click");
