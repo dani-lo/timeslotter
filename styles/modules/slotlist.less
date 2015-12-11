@@ -1,11 +1,13 @@
 .slotlist {
-	width: 820px;
+	width: 100%;
     .boxin(0, 0, @gap_huge, 0);
 
 	.slotlist_box {
 		float: left;
-		color: @white;
-    	background: @black;
+		color: @black;
+    	.gradient();
+    	.box-shadow(0 1px 2px 0 rgba(0,0,0,.1));
+    	.boxin(1px, 1px, 1px, 1px);
     	padding: 12px;
     	width: @gap_std;
 		.borderstd;
@@ -17,7 +19,8 @@
 		}
 
 		&.booked {
-			background: @red;
+			background: @green;
+			color: @white;
 		}
 	}
 

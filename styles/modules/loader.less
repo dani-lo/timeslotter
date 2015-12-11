@@ -1,0 +1,12 @@
+.loader {
+	.opaque(100, 10);
+	.full_screen(1);
+	.transit(opacity, 0.25s);
+	background-color: @light_gray;
+	&.loaded {
+		.opaque(0, 0);
+	}
+	&.unload {
+		display: none;
+	}
+}

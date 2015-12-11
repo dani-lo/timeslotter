@@ -3,10 +3,11 @@ define([
   "underscore",
   "views/partials/timeslot/display",
   "views/partials/timeslot/create",
+  "views/helper/loader",
   "lib/slotshub",
   "text!/templates/timeslots.html"
 ], function(Backbone, _, TimeSlotDisplayView, 
-  TimeSlotCreateView, SlotsHubManager, TimeSlotsTpl) {
+  TimeSlotCreateView, LoaderViewHelper, SlotsHubManager, TimeSlotsTpl) {
   //
   "use strict";
 
@@ -19,6 +20,8 @@ define([
       this.tpl = TimeSlotsTpl;
 
       this.hub = new SlotsHubManager();
+
+      this.loader = new LoaderViewHelper();
 
       return this;
     },
@@ -40,6 +43,12 @@ define([
       });
       //
       slotsCreateView.render();
+
+      this.loader.loaded();
+
+      setTimeout(_.bind(function () {
+        this.loader.unload();
+      }, this), 250);
     },
     //
     appendTimeslot: function (item, boolNew) {
