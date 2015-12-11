@@ -12,6 +12,11 @@ form {
 	    	width: 100px;
 	    	background: @light_gray;
 	    	margin: 24px 0;
+	    	cursor: pointer;
+	    	&:hover {
+		    	border-color: @mid_gray;
+		    	.opaque(0.7, 70);
+		    }
 	    }
 	}
 	select {
