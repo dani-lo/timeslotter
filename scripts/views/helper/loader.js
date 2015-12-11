@@ -1,7 +1,7 @@
 define([
   "backbone",
   "underscore"
-], function(Backbone, _, SlotsDisplayTpl) {
+], function(Backbone, _) {
   //
   "use strict";
 

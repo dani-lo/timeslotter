@@ -1,1 +1,1 @@
-define(["backbone","underscore"],function(a,b,c){"use strict";var d=a.View.extend({el:".loader",initialize:function(){return this},render:function(){},loaded:function(){this.$el.addClass("loaded")},unload:function(){this.$el.addClass("unload")}});return d});
+define(["backbone","underscore"],function(a,b){"use strict";var c=a.View.extend({el:".loader",initialize:function(){return this},render:function(){},loaded:function(){this.$el.addClass("loaded")},unload:function(){this.$el.addClass("unload")}});return c});
