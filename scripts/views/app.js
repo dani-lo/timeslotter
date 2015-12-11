@@ -13,7 +13,7 @@ define([
 
   var App = Backbone.View.extend({
     //
-    el: ".timeslotter",
+    el: ".timeslotter-timeslots",
     //
     initialize: function() {
 
