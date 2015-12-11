@@ -25,12 +25,12 @@ define([
 	*/
 	SlotData.prototype.initialize = function (options) {
 		//
-		if (options.type) {
+		if (options && options.type) {
 			//
 			this.type = options.type;
 			this.setInterval();
 		}
-		if (options.name) {
+		if (options && options.name) {
 			//
 			this.name = options.name;
 		}

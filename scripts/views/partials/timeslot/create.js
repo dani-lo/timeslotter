@@ -18,7 +18,7 @@ define([
       this.tform = new TimeslotFormUtil();
 
       this.tform.init({
-        onSubmit: this.startCreate
+        onSubmit: _.bind(this.startCreate, this)
       }).render();
 
       this.slotData = null;
@@ -29,11 +29,12 @@ define([
     render: function () {
       //      
     },
+
     startCreate: function (options) {
       //
-      this.slotData = new SlotDataUtil();
+      this.slotsData = new SlotDataUtil();
 
-      this.slotData.initialize(options);
+      this.slotsData.initialize(options);
 
       this.$el.append(_.template(SlotsCreateTpl, {
         name: this.slotsData.name,
@@ -53,9 +54,9 @@ define([
         slotBox.toggleClass("booked");
 
         if (slotBox.hasClass("booked")) {
-          this.slotData.bookSlot(boxId);
+          this.slotsData.bookSlot(boxId);
         } else {
-          this.slotData.freeSlot(boxId);
+          this.slotsData.freeSlot(boxId);
         }
       });
     },

@@ -28,8 +28,8 @@ define([
             console.log(this)
             if (this.validate()) {
                 this.onSubmitCb.call(null, {
-                    name: this.text.value(),
-                    type: this.select[this.select.seelctedIndex].value()
+                    name: this.text.val(),
+                    type: this.select.val()
                 });
             } else {
                 alert("please see errors and amend");
