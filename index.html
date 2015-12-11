@@ -11,14 +11,39 @@
 
   <body>
     <header>
-      <h1>Timeslots Booker</h1>
+      <h1>Timeslots Booker - with Doctor Z</h1>
     </header>
+    <section class="createslots clearfix">
+      <div class="createslot">
+        <h2>Please book here your timeslots with Doctor Z</h2>
+        <p>You can book any amount of time, Dr Z doesnt mind he's got plenty of time. Just remember after creating the slot you can not change it, that's it, if you make a mistake you will need to create a new timeslot sequence.</p>
+        <form class="createslot_form timeslotter-form">
+          <div class="form-field createslot_form-field">
+            <label for="slot_name">Name</label>
+            <input class="timeslotter-form_text" id="slot_name" name="slot_name" value="" placeholder="Enter Name" type-"text" />
+          </div>
+          <div class="form-field createslot_form-field">
+            <label for="slot_type">Type</label>
+            <select id="slot_type" name="slot_type" class="timeslotter-form_select">
+              <option vlaue="n">choose one ...</option>
+              <option vlaue="A">Type A (2 hrs)</option>
+              <option vlaue="B">Type B (3 hrs)</option>
+              <option vlaue="C">Type C (4 hrs)</option>
+            </select>
+          </div>
+          <div class="form-field createslot_form-field">
+            <input class="form-submit" name="start_timeslot" value="Start" type="submit" />
+          </div>
+        </form>
+      </div>
+    </section>
     <section class="about">
       <h2>About this app</h2>
       <p>sds dsd sds dsdsds</p>
       <p>sdsd s sd sdsdsdsds</p>
     </section>
-    <section class="timeslotter"></section>
+    <section class="timeslotter  clearfix"></section>
+    
      <script data-main="scripts/main" src="vendor/requirejs/require.js"></script>
   </body>
 </html>

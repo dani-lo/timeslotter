@@ -23,12 +23,31 @@ define([
 	*
 	*
 	*/
-	SlotData.prototype.initialize = function () {
+	SlotData.prototype.initialize = function (options) {
 		//
+		if (options.type) {
+			//
+			this.type = options.type;
+			this.setInterval();
+		}
+		if (options.name) {
+			//
+			this.name = options.name;
+		}
+
 		if(this.interval !== null) {
 			this.initSlots();
 		}
 	}
+	/**
+	*
+	*
+	*/
+	SlotData.prototype.setInterval = function () {
+		//
+		this.interval = this.range / this.types[this.type];
+	}
+	
 	/**
 	*
 	*
@@ -59,7 +78,8 @@ define([
 		//
 		this.type = slotModel.get("type");
 		this.name = slotModel.get("name");
-		this.interval = this.range / this.types[this.type];
+		
+		this.setInterval();
 
 		this.initSlots();
 

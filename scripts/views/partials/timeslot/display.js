@@ -8,10 +8,6 @@ define([
 
   var SlotsDisplayView = Backbone.View.extend({
     //
-    actions: {
-      //
-    },
-    //
     initialize: function(options) {
       //
       this.slotsData = options.slotsData;
@@ -24,7 +20,7 @@ define([
       return _.template(SlotsDisplayTpl, {
         name: this.slotsData.name,
         type: this.slotsData.type,
-        "pace": this.slotsData.getPace(),
+        pace: this.slotsData.getPace(),
         slots: this.slotsData.slots
       });
     },

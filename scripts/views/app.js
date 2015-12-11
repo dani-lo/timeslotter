@@ -2,11 +2,10 @@ define([
   "backbone",
   "underscore",
   "views/partials/timeslot/display",
-  "views/partials/timeslot/plot",
   "views/partials/timeslot/create",
   "lib/slotshub",
   "text!/templates/timeslots.html"
-], function(Backbone, _, TimeSlotDisplayView, TimeSlotPlotView, 
+], function(Backbone, _, TimeSlotDisplayView, 
   TimeSlotCreateView, SlotsHubManager, TimeSlotsTpl) {
   //
   "use strict";
@@ -31,7 +30,7 @@ define([
       this.hub.fetchSlots().then(_.bind(function (slotItems) {
         //
         _.each(slotItems, _.bind(function (item) {
-          
+
           var slotView = new TimeSlotDisplayView({
             slotsData: item
           });
@@ -39,6 +38,10 @@ define([
           this.$el.find(".view-slots").append(slotView.render());
         }, this));
       }, this));
+
+      var slotsCreateView = new TimeSlotCreateView();
+      console.log(slotsCreateView);
+      //sloteCreateView.initialize().render();
     },
   });
   //
