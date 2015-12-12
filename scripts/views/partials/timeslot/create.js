@@ -2,11 +2,12 @@ define([
   "backbone",
   "underscore",
   "jquery",
-  "views/helper/timeslotterform",
+  "views/helper/forms/createslots",
   "lib/slotdata",
   "lib/ts",
   "text!slot-create.html"
-], function(Backbone, _, jQuery, TimeslotFormUtil, SlotDataUtil, TsHelper, SlotsCreateTpl) {
+], function(Backbone, _, jQuery, CreateSlotsFormViewHelper, SlotDataUtil, 
+  TsHelper, SlotsCreateTpl) {
   //
   "use strict";
 
@@ -19,11 +20,11 @@ define([
     */
     initialize: function(options) {
       //
-      this.tform = new TimeslotFormUtil();
-
-      this.tform.init({
+      this.formCreateView = new CreateSlotsFormViewHelper({
         onSubmit: _.bind(this.startCreate, this)
-      }).render();
+      });
+
+      this.formCreateView.render();
 
       this.slotData = null;
 
@@ -59,7 +60,7 @@ define([
 
       this.bindCreateSubview();
 
-      this.tform.lock();
+      this.formCreateView.lock();
 
       this.flash.render("msg", "Now select the slots then save, or cancel").show();
     },
@@ -70,19 +71,19 @@ define([
     bindCreateSubview: function () {
       // bind the slots create UI
       // (should be refactored to own View)
-      this.$el.find(".go-create").on("click", _.bind(function () {
+      this.$(".go-create").on("click", _.bind(function () {
         //
         this.goCreate();
       }, this));
       // bind the slots Ccancel UI
       // (should be refactored to own View)
-      this.$el.find(".go-cancel").on("click", _.bind(function () {
+      this.$(".go-cancel").on("click", _.bind(function () {
         //
         this.goCancel();
       }, this));
       // bind the slots create UI
       // (should be refactored to own View)
-      this.$el.find(".slotlist_box").on("click", _.bind(function (e) {
+      this.$(".slotlist_box").on("click", _.bind(function (e) {
         //
         var slotBox = jQuery(e.currentTarget),
             boxId = parseInt(slotBox.attr("id").replace("slotbox-", ""), 10);
@@ -109,7 +110,7 @@ define([
       // as required, per specifications ...
       console.log(this.slotsData.toObject());
       
-      this.tform.unlock();
+      this.formCreateView.unlock();
 
       this.reset();
 
@@ -123,7 +124,7 @@ define([
       //
       this.slotsData = null;
 
-      this.tform.unlock();
+      this.formCreateView.unlock();
 
       this.reset();
 
@@ -135,11 +136,11 @@ define([
     */
     reset: function () {
       //
-      this.$el.find(".go-create").off("click");
+      this.$(".go-create").off("click");
 
-      this.$el.find(".slotlist_box").off("click");
+      this.$(".slotlist_box").off("click");
       
-      this.$el.find(".slotlist").remove();
+      this.$(".slotlist").remove();
     }
   });
   //

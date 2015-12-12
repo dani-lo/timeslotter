@@ -6,7 +6,7 @@ function (FlashViewHelper, LoaderViewHelper) {
     "use strict";
 
     var instance = null;
-    /** Timeslot Helper
+    /**
     * Singleton utility class to share some
     * common functionality (i.e helpers) throughout the app
     */

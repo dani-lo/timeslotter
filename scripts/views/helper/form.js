@@ -13,7 +13,7 @@ define([
   * provided by a subclass
   *
   */
-  var FormHelperView = Backbone.View.extend({
+  var FormViewHelper = Backbone.View.extend({
     //
     el: ".timeslotter-form",
     //
@@ -30,6 +30,8 @@ define([
       this.select = null;
 
       this.flash = TsHelper.getFlash();
+
+      this.onSubmitCb = options.onSubmit;
       
       return this;
     },
@@ -39,8 +41,8 @@ define([
     */
     render: function () {
       //      
-      this.text = this.$el.find(".timeslotter-form_text");
-      this.select = this.$el.find(".timeslotter-form_select");
+      this.text = this.$(".timeslotter-form_text");
+      this.select = this.$(".timeslotter-form_select");
 
       this.text.on("click, focus", _.bind(function () {
         this.cleanup("t");
@@ -104,6 +106,17 @@ define([
     *
     *
     */
+    fieldsVal: function () {
+      //
+      return {
+          name: this.text.val(),
+          type: this.select.val()
+      };
+    },
+    /**
+    *
+    *
+    */
     lock: function () {
       //
       this.$el.addClass("form-locked");
@@ -118,5 +131,5 @@ define([
     }
   });
   //
-  return FormHelperView;
+  return FormViewHelper;
 });

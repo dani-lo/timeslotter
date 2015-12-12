@@ -1,10 +1,9 @@
 define([
-	"backbone",
 	"underscore",
 	"jquery",
 	"collections/slots",
 	"lib/slotdata"
-], function (Backbone, _, jQuery, SlotsCollection, SlotData) {
+], function (_, jQuery, SlotsCollection, SlotData) {
 	"use strict";
 	//
 	var SlotsHub = function () {
