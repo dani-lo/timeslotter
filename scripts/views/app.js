@@ -16,9 +16,7 @@ define([
     el: ".timeslotter-timeslots",
     //
     initialize: function() {
-
-      this.tpl = TimeSlotsTpl;
-
+      //
       this.hub = new SlotsHubManager();
 
       this.loader = TsHelper.getLoader();
@@ -28,7 +26,7 @@ define([
     //
     render: function () {
       //      
-      this.$el.append(this.tpl);
+      this.$el.append(TimeSlotsTpl);
 
       this.hub.fetchSlots().then(_.bind(function (slotItems) {
         //
@@ -57,12 +55,7 @@ define([
         slotsData: item
       });
       
-      if (boolNew) {
-        this.$el.find(".view-slots").prepend(slotView.render());
-      } else {
-        this.$el.find(".view-slots").append(slotView.render());
-      }
-      
+      slotView.render(boolNew);
     }
   });
   //
