@@ -69,20 +69,17 @@ define([
     *
     */
     bindCreateSubview: function () {
-      // bind the slots create UI
-      // (should be refactored to own View)
+      //
       this.$(".go-create").on("click", _.bind(function () {
         //
         this.goCreate();
       }, this));
-      // bind the slots Ccancel UI
-      // (should be refactored to own View)
+      //
       this.$(".go-cancel").on("click", _.bind(function () {
         //
         this.goCancel();
       }, this));
-      // bind the slots create UI
-      // (should be refactored to own View)
+      //
       this.$(".slotlist_box").on("click", _.bind(function (e) {
         //
         var slotBox = jQuery(e.currentTarget),

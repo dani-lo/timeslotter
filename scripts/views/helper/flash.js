@@ -24,6 +24,8 @@ define([
         return this;
       }
 
+      this.cleanup();
+      
       this.$el.append(this.tpl);
 
       this.$el.find("p").addClass(type);
@@ -43,11 +45,18 @@ define([
         //
         this.$el.fadeOut(_.bind(function () {
           //
-          this.$el.find("p").remove();
+          this.cleanup();
+
+          clearTimeout(this.tOut);
 
           this.tOut = null;
         }, this));
       }, this), 3500);
+    },
+    //
+    cleanup: function () {
+      //
+      this.$el.find("p").remove();
     }
   });
   //
