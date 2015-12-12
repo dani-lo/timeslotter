@@ -13,10 +13,12 @@ define([
       //
       this.tpl = "<p class='flash'></p>";
 
+      this.tOut = null;
+
       return this;
     },
     //
-    render: function (iserror, msg) {
+    render: function (type, msg) {
       // 
       if (!msg) {
         return this;
@@ -24,11 +26,7 @@ define([
 
       this.$el.append(this.tpl);
 
-      if (iserror) {
-        this.$el.find("p").addClass("error");
-      } else {
-        this.$el.find("p").removeClass("error");
-      }
+      this.$el.find("p").addClass(type);
 
       this.$el.find("p").html(msg);
 
@@ -39,13 +37,17 @@ define([
       //
       this.$el.fadeIn();
 
-      setTimeout(_.bind(function () {
+      clearTimeout(this.tOut);
+      
+      this.tOut = setTimeout(_.bind(function () {
         //
         this.$el.fadeOut(_.bind(function () {
           //
           this.$el.find("p").remove();
+
+          this.tOut = null;
         }, this));
-      }, this), 2000);
+      }, this), 3500);
     }
   });
   //

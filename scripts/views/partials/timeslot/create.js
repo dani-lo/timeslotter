@@ -4,8 +4,9 @@ define([
   "jquery",
   "views/helper/timeslotterform",
   "lib/slotdata",
+  "views/helper/flash",
   "text!slot-create.html"
-], function(Backbone, _, jQuery, TimeslotFormUtil, SlotDataUtil, SlotsCreateTpl) {
+], function(Backbone, _, jQuery, TimeslotFormUtil, SlotDataUtil, FlashHelper, SlotsCreateTpl) {
   //
   "use strict";
 
@@ -27,6 +28,8 @@ define([
       this.slotData = null;
 
       this.owner = options.owner;
+
+      this.flash = new FlashHelper();
 
       return this;
     },
@@ -57,6 +60,8 @@ define([
       this.bindCreateSubview();
 
       this.tform.lock();
+
+      this.flash.render("msg", "Now select the slots then save, or cancel").show();
     },
     /**
     *
@@ -107,6 +112,8 @@ define([
       this.tform.unlock();
 
       this.reset();
+
+      this.flash.render("success", "Your booking has been created").show();
     },
     /**
     *
@@ -119,6 +126,8 @@ define([
       this.tform.unlock();
 
       this.reset();
+
+      this.flash.render("success", "Your booking has been cancelled").show();
     },
     /**
     *

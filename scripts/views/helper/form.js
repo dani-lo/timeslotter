@@ -30,6 +30,7 @@ define([
       this.select = null;
 
       this.flash = new FlashHelper();
+      
       return this;
     },
      /**
