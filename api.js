@@ -3,22 +3,22 @@
  */
 var slots = [
 	{
-		"name": "fooler",
+		"name": "Foo Bar",
 		"type": "A",
 		"booked": [0, 3, 4]
 	},
 	{
-		"name": "bazzie boy",
+		"name": "Someday Sometime",
 		"type": "A",
 		"booked": [1, 2]
 	},
 	{
-		"name": "recode that",
+		"name": "Hurry up",
 		"type": "B",
 		"booked": [0, 1, 2, 5, 6]
 	},
 	{
-		"name": "refactor this",
+		"name": "Very very often",
 		"type": "A",
 		"booked": [2, 5]
 	}
