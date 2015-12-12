@@ -4,9 +4,9 @@ define([
   "jquery",
   "views/helper/timeslotterform",
   "lib/slotdata",
-  "views/helper/flash",
+  "lib/ts",
   "text!slot-create.html"
-], function(Backbone, _, jQuery, TimeslotFormUtil, SlotDataUtil, FlashHelper, SlotsCreateTpl) {
+], function(Backbone, _, jQuery, TimeslotFormUtil, SlotDataUtil, TsHelper, SlotsCreateTpl) {
   //
   "use strict";
 
@@ -29,7 +29,7 @@ define([
 
       this.owner = options.owner;
 
-      this.flash = new FlashHelper();
+      this.flash = TsHelper.getFlash();
 
       return this;
     },

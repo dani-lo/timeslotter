@@ -3,11 +3,11 @@ define([
   "underscore",
   "views/partials/timeslot/display",
   "views/partials/timeslot/create",
-  "views/helper/loader",
+  "lib/ts",
   "lib/slotshub",
   "text!timeslots.html"
 ], function(Backbone, _, TimeSlotDisplayView, 
-  TimeSlotCreateView, LoaderViewHelper, SlotsHubManager, TimeSlotsTpl) {
+  TimeSlotCreateView, TsHelper, SlotsHubManager, TimeSlotsTpl) {
   //
   "use strict";
 
@@ -21,7 +21,7 @@ define([
 
       this.hub = new SlotsHubManager();
 
-      this.loader = new LoaderViewHelper();
+      this.loader = TsHelper.getLoader();
 
       return this;
     },

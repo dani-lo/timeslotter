@@ -1,8 +1,8 @@
 define([
   "backbone",
   "underscore",
-  "views/helper/flash"
-], function(Backbone, _, FlashHelper) {
+  "lib/ts"
+], function(Backbone, _, TsHelper) {
   //
   "use strict";
   /**
@@ -29,7 +29,7 @@ define([
       this.text = null;
       this.select = null;
 
-      this.flash = new FlashHelper();
+      this.flash = TsHelper.getFlash();
       
       return this;
     },
