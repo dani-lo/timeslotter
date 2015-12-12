@@ -3,7 +3,7 @@ require.config({
     "jquery": "jquery/dist/jquery.min",
     "underscore": "underscore-amd/underscore",
     "backbone": "backbone-amd/backbone",
-	"text": "text/text"
+	"text": "requirejs-text/text"
   }
 });
 

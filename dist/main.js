@@ -1,1 +1,1 @@
-require.config({paths:{jquery:"jquery/dist/jquery.min",underscore:"underscore-amd/underscore",backbone:"backbone-amd/backbone",text:"text/text"}}),require(["views/app"],function(a){"use strict";var b=new a;b.initialize().render()});
+require.config({paths:{jquery:"jquery/dist/jquery.min",underscore:"underscore-amd/underscore",backbone:"backbone-amd/backbone",text:"requirejs-text/text"}}),require(["views/app"],function(a){"use strict";var b=new a;b.initialize().render()});
