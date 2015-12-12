@@ -3,21 +3,21 @@
 }
 .slotlist {
 	width: 100%;
-    .boxin(@gap_jump, 0, @gap_huge, 0);
-    .boxout(12px, 12px, 24px, 12px);
-    .box-shadow(0px 1px 1px 2px rgba(101, 99, 197, 0.1));
-
+    .boxin(@gap_big, 0, @gap_big, 0);
+    .boxout(12px, 0, 24px, 0);
+    border-bottom: 1px solid @light_gray;
 	.slotlist_box {
 		float: left;
 		color: @black;
     	.gradient();
     	.box-shadow(0 1px 2px 0 rgba(0,0,0,.1));
     	.boxin(1px, 1px, 1px, 1px);
-    	padding: 12px;
-    	width: @gap_std;
+    	padding: @gap_sml;
+    	width: @gap_jump;
 		.borderstd;
 		.slotlist_item-label {
-			font-size: 1em;
+			font-size: 0.8em;
+    		color: @deep_gray;
 			span {
 				display: block;
 			}
@@ -26,22 +26,9 @@
 		&.booked {
 			background: @green_dark;
 			color: @white;
-		}
-	}
-
-	&.slot-A {
-		.slotlist_box {
-			width: 65px;
-		}
-	}
-	&.slot-B {
-		.slotlist_box {
-			width: 65px;
-		}
-	}
-	&.slot-C {
-		.slotlist_box {
-			width: 65px;
+			span {
+				color: @white;
+			}
 		}
 	}
 }
