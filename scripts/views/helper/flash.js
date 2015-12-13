@@ -25,7 +25,7 @@ define([
       }
 
       this.cleanup();
-      
+
       this.$el.append(this.tpl);
 
       this.$el.find("p").addClass(type);
@@ -37,12 +37,14 @@ define([
     //
     show: function () {
       //
-      this.$el.fadeIn();
+      this.$el.addClass("is-active").fadeIn();
 
       clearTimeout(this.tOut);
       
       this.tOut = setTimeout(_.bind(function () {
         //
+        this.$el.removeClass("is-active");
+
         this.$el.fadeOut(_.bind(function () {
           //
           this.cleanup();
@@ -57,6 +59,7 @@ define([
     cleanup: function () {
       //
       this.$el.find("p").remove();
+      this.$el.removeClass("is-active");
     }
   });
   //

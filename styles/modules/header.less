@@ -6,10 +6,9 @@ header {
     	border-bottom: 1px solid @mid_gray;
     	color: @white;
         background-color: @blue;
-	}
-	h2 {
-    	.boxout(@gap_big, 0, @gap_big, 0);
-    	.boxin(@gap_big, 0, @gap_big, 0);
-    	border-bottom: 1px dotted @mid_gray;
+        @media only screen and (max-device-width: 627px) {
+            font-size: 1.75em;
+            .boxout(@gap_std, 0, @gap_std, 0);
+        }
 	}
 }
