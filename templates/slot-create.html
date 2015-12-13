@@ -3,7 +3,7 @@
 	<p class="note">Interval: <%= pace %> hours</p>
 	<div class="slotlist-inner">
 		<% for (var slotsCount = 0; slotsCount < slots.length; slotsCount++) { %>
-			<div class="slotlist_box  free editable" id="slotbox-<%= slotsCount %>"><span class="slotlist_item-label"><span><%= "from " + (pace * slots[slotsCount].id) %></span><span> <%= "to " + (pace * (slots[slotsCount].id + 1)) %></span></span></div>
+			<div class="slotlist_box slotlist_box-create  free editable" id="slotbox-<%= slotsCount %>"><span class="slotlist_item-label"><span><%= "from " + (pace * slots[slotsCount].id) %></span><span> <%= "to " + (pace * (slots[slotsCount].id + 1)) %></span></span></div>
 		<% } %>
 		<div class="clearfix"></div>
 	</div>
