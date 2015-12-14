@@ -21,6 +21,9 @@ app.set("port", process.env.PORT || 8080);
 app.use(express.static("dist"));
 app.use(express.static("vendor"));
 app.use(express.static("templates"));
+app.use(express.static("test"));
+app.use(express.static("scripts"));
+//app.use(express.static("node_modules"));
 
 var env = process.env.NODE_ENV || "development";
 
@@ -41,7 +44,12 @@ if (env === "production") {
 app.get("/", function (req, res, next) {
     "use strict";
     res.sendFile(path.join(__dirname, "index.html"));
-});;
+});
+
+app.get("/tests", function (req, res, next) {
+    "use strict";
+    res.sendFile(path.join(__dirname,"SpecRunner.html"));
+});
 // JSON API
 app.get("/api/slots", api.slots);
 

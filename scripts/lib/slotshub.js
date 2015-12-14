@@ -21,19 +21,7 @@ define([
 		this.collection.fetch({
 			success: _.bind(function (d) {
 				//
-				var slotsDataItems = [],
-					slotItem;
-				this.collection.each(function (slotModel) {
-					//
-					slotItem = new SlotData();
-					slotItem.initialize();
-					//
-					slotItem.inflate(slotModel);
-					
-					slotsDataItems.push(slotItem);
-				});
-				//
-				dfd.resolve(slotsDataItems);
+				dfd.resolve(this.populateSlotsData());
 			}, this),
 			error: function () {
 				//
@@ -43,6 +31,30 @@ define([
 
 		return dfd.promise();
 	}
+
+	/**
+	*
+	*
+	*/
+	SlotsHub.prototype.populateSlotsData = function (d) {
+		//
+		var slotsDataItems = [],
+			slotItem;
+
+		this.collection.each(function (slotModel) {
+			//
+			slotItem = new SlotData();
+			slotItem.initialize();
+			//
+			slotItem.inflate(slotModel);
+			
+			slotsDataItems.push(slotItem);
+		});
+		
+		return slotsDataItems;
+	}
+
+	
 	/**
 	*
 	*
