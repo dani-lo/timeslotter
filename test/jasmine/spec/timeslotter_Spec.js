@@ -35,5 +35,27 @@ define([
 				});
 			});
 		});
+
+		it('should inflate slots logic objects from data', function(done) {
+	    	//
+			injector.require(['lib/slotdata', "mocks/slots-collection"], function(SlotData, MockSlotsCollection) {
+				//
+				var slotDataItem = new SlotData();
+
+				var coll = new MockSlotsCollection()
+
+				coll.fetch({
+					//
+					success: function () {
+
+						slotDataItem.inflate(coll.models[0]);]
+
+						expect(slotDataItem.slots.length).toEqual(12);
+
+						done();
+					}
+				});
+			});
+		});
 	});
 });
